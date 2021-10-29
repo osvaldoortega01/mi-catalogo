@@ -1,7 +1,33 @@
+<p>
+    <ng-template #content let-modal>
+        <div *ngIf="autoSeleccionado">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado.marca}} {{autoSeleccionado.submarca}}
+                    {{autoSeleccionado.modelo}}</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <p>Descripción: {{autoSeleccionado.descripcion}}</p>
+                    <p>Fecha de registro: {{autoSeleccionado.fecha_registro}}</p>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Exit click')">Salir</button>
+            </div>
+        </div>
+    </ng-template>
+</p>
+
+
 <ng-container>
     <div *ngFor="let auto of autos" class="vista">
         <div>
-            <img src="../../assets/icons/eye-solid.svg" style="cursor: pointer;" width="30px" height="30px">
+            <img src="../../assets/icons/eye-solid.svg" style="cursor: pointer;" width="30px" height="30px" (click)="onSelect(auto, content)">
         </div>
         <div class="vistasItem">
             {{auto.submarca}} / {{auto.modelo}}
