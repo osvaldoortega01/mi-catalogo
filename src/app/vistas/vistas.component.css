@@ -31,7 +31,7 @@ h1{
     vertical-align: middle;
 }
 .vistasItem{
-    border: solid;
+    font-size: 20px;
     width: 50%;
     height:100%;
     align-self: center;
@@ -48,4 +48,12 @@ h1{
     display: flex;
     margin-left: 10px;
     margin-right: 10px;
+}
+.active{
+    background-color: #706964;
+    border: 10px;
+    border-top: black;
+    border-left: black;
+    border-right: black;
+    border-bottom: white;
 }
