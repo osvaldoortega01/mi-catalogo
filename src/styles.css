@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+/* navbar = #463F3A
+hover element = #8A817C
+element = #BCB8B1
+body = #F4F3EE
+other = #E0AFA0 */
+
+body,html{
+    margin:0px
+}
