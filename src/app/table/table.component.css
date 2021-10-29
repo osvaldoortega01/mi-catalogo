@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+table{
+    font-family: Montserrat;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.table-header{
+    font-size:18px;
+    font-family: Roboto;
+    color: black;
+    align-self: center;
+    text-align: center;
+}
