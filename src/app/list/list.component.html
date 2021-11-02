@@ -2,8 +2,7 @@
     <ng-template #content let-modal>
         <div *ngIf="autoSeleccionado">
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado.marca}} {{autoSeleccionado.submarca}}
-                    {{autoSeleccionado.modelo}}</h4>
+                <h4 class="modal-title" id="modal-basic-title">{{autoSeleccionado._id}} {{autoSeleccionado.marca}} {{autoSeleccionado.descripcioncorta}}</h4>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,8 +10,11 @@
             <div class="modal-body">
 
                 <div>
+                    <p>Marca: {{autoSeleccionado.marca}}</p>
+                    <p>Submarca: {{autoSeleccionado.submarca}}</p>
                     <p>Descripción: {{autoSeleccionado.descripcion}}</p>
-                    <p>Fecha de registro: {{autoSeleccionado.fecha_registro}}</p>
+                    <p>Ocupantes: {{autoSeleccionado.Ocupantes}}</p>
+                    <p>Modelos: {{autoSeleccionado.modelos}}</p>
                 </div>
 
             </div>
@@ -30,7 +32,7 @@
             <img src="../../assets/icons/eye-solid.svg" style="cursor: pointer;" width="30px" height="30px" (click)="onSelect(auto, content)">
         </div>
         <div class="vistasItem">
-            {{auto.submarca}} / {{auto.modelo}}
+            {{auto.marca}} / {{auto.descripcioncorta}}
         </div>
     </div>
 </ng-container>
