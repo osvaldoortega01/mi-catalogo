@@ -12,6 +12,8 @@ import { AutoService } from '../services/auto.service';
 })
 
 export class ListComponent implements OnInit {
+  page=1;
+  pageSize=10;
   closeResult = '';
   autos: Automovil[] = [];
   autoSeleccionado? : Automovil;

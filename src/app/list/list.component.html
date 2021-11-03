@@ -26,13 +26,26 @@
 </p>
 
 
+
 <ng-container>
-    <div *ngFor="let auto of autos" class="vista">
-        <div>
-            <img src="../../assets/icons/eye-solid.svg" style="cursor: pointer;" width="30px" height="30px" (click)="onSelect(auto, content)">
-        </div>
-        <div class="vistasItem">
-            {{auto.marca}} / {{auto.descripcioncorta}}
-        </div>
-    </div>
+  <div *ngFor="let auto of autos | slice: (page-1) * pageSize : page * pageSize" class="vista">
+      <div>
+          <img src="../../assets/icons/eye-solid.svg" style="cursor: pointer;" width="30px" height="30px" (click)="onSelect(auto, content)">
+      </div>
+      <div class="vistasItem">
+          {{auto.marca}} / {{auto.descripcioncorta}}
+      </div>
+  </div>
 </ng-container>
+
+<div class="pagination">
+    <ngb-pagination 
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="autos.length"
+    [rotate]="true"
+    [maxSize]="5"
+    [boundaryLinks]="true"
+    >
+</ngb-pagination>
+</div>

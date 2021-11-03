@@ -1,24 +1,37 @@
 <p></p>
 <ng-container>
     <table class="table table-striped">
+
         <thead>
         <tr>
           <th scope="col" class="table-header">ID</th>
           <th scope="col" class="table-header">Marca</th>
           <th scope="col" class="table-header">Submarca</th>
           <th scope="col" class="table-header">Descripción</th>
-          
         </tr>
         </thead>
+
         <tbody>
-        <tr *ngFor="let auto of autos; index as i">
+        <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : page * pageSize">
           <td>{{ auto._id }}</td>
           <td>{{ auto.marca }}</td>
           <td>{{ auto.submarca }}</td>
           <td>{{ auto.descripcion}}</td>
-          
-          
+          <td><img src="../../assets/icons/trash-solid.svg" style="cursor: pointer;" width="20px" height="20px"></td>
+          <td><img src="../../assets/icons/edit-solid.svg" style="cursor: pointer;" width="20px" height="20px"></td>
         </tr>
         </tbody>
+
       </table>
 </ng-container>
+
+<div class="pagination">
+  <ngb-pagination 
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="autos.length"
+  [rotate]="true"
+  [maxSize]="5"
+  >
+</ngb-pagination>
+</div>
