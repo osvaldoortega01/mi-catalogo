@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,18 @@ import { HttpClientModule } from '@angular/common/http';
     VistasComponent,
     ListComponent,
     TableComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ModalAddUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalAddUpdateComponent]
 })
 export class AppModule { }
