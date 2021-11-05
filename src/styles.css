@@ -8,3 +8,9 @@ other = #E0AFA0 */
 body,html{
     margin:0px
 }
+.ng-valid[required]{
+    border-left: 5px solid green;
+}
+.ng-invalid:not(form){
+    border-left: 5px solid red;
+}

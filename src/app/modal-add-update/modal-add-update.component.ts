@@ -11,25 +11,25 @@ import { Automovil } from '../models';
 })
 export class ModalAddUpdateComponent implements OnInit {
   minValue: number = 2000;
-  maxValue: number = 2022;
+  maxValue: number = 2020;
   options: Options = {
-    floor: 1980,
-    ceil: 2022
+    floor: 2000,
+    ceil: 2020
   };
   accion?: string;
   auto: Automovil = {} as Automovil;
+  marca = this.auto.marca;
 
   constructor(public activeModal: NgbActiveModal) {   }
 
   ngOnInit(): void {
   }
-  close(): void{
+  onSubmit(){
     let modelos: string[] = [];
 
     for (let i=this.minValue; i<= this.maxValue; i++) {
       modelos.push(i.toString());
     }
-
     this.auto.modelos=modelos;
     this.activeModal.close(this.auto);
   }
