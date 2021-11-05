@@ -18,6 +18,7 @@ export class TableComponent implements OnInit {
   closeResult = '';
   autos: Automovil[] = [];
   auto ?: Automovil;
+  searchText?: string;
   autoSeleccionado? : Automovil;
   displayProgressBar ?: boolean;
   constructor(private autoService:AutoService, private modalService:NgbModal) { }

@@ -23,3 +23,9 @@ table{
 .boton{
     display: flex;
 }
+div.input-group{
+    padding-top: 20px;
+    width: 30%;
+    margin: auto;
+    padding-bottom: 30px;
+}

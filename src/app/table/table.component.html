@@ -3,6 +3,16 @@
   <div class="boton">
     <div class="btn btn-dark" style="margin: auto;" (click)="openModalAdd()" >Agregar Auto <i class="fas fa-plus-circle"></i></div>
   </div>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fas fa-search"></i>
+        </div>
+    </div>
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Buscar el ID" [(ngModel)]="searchText" autocomplete="off">
+  </div>
+
   <div><p *ngIf="displayProgressBar"><ngb-progressbar type="secondary" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar></p></div>
     <table class="table table-striped">
 
