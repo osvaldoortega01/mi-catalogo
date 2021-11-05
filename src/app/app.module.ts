@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { FormatModelosPipe } from './pipes/format-modelos.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     TableComponent,
     PageNotFoundComponent,
     ModalAddUpdateComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    FormatModelosPipe
   ],
   imports: [
     BrowserModule,

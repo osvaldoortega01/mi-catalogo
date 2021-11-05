@@ -12,6 +12,7 @@
           <th scope="col" class="table-header">Marca</th>
           <th scope="col" class="table-header">Submarca</th>
           <th scope="col" class="table-header">Descripción</th>
+          <th scope="col" class="table-header">Modelos</th>
         </tr>
         </thead>
 
@@ -21,6 +22,7 @@
           <td>{{ auto.marca }}</td>
           <td>{{ auto.submarca }}</td>
           <td>{{ auto.descripcion}}</td>
+          <td>{{ auto.modelos | formatModelos}}</td>
           <td><img src="../../assets/icons/trash-solid.svg" style="cursor: pointer;" width="20px" height="20px" (click)="openModalDelete(auto)"></td>
           <td><img src="../../assets/icons/edit-solid.svg" style="cursor: pointer;" width="20px" height="20px" (click)="openModalEdit(auto)"></td>
         </tr>
