@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     if(sessionStorage.getItem('currentPage') != null){
-      this.page  = +sessionStorage.getItem('currentPage');
+      this.page  = +sessionStorage.getItem('currentPage')!;
     }
     else{
       this.page=1;
@@ -44,6 +44,7 @@ export class TableComponent implements OnInit {
     modalRef.result.then(
       (auto) =>
       {this.autoService.updateAutos(auto).subscribe(response => {
+        sessionStorage.setItem('currentPage', this.page.toString())
         this.ngOnInit();
         console.log(response)} )}
       ),
@@ -57,6 +58,7 @@ export class TableComponent implements OnInit {
     modalRef.result.then(
       (auto) =>
       {this.autoService.addAutos(auto).subscribe(response => {
+        sessionStorage.setItem('currentPage', this.page.toString())
         this.ngOnInit();
         console.log(response)
       } )}
@@ -72,6 +74,7 @@ export class TableComponent implements OnInit {
     modalRef.result.then(
       (auto) =>
       {this.autoService.deleteAutos(auto).subscribe(response => {
+        sessionStorage.setItem('currentPage', this.page.toString())
         this.ngOnInit();
         console.log(response)
       })}
