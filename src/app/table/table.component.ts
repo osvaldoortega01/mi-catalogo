@@ -13,7 +13,7 @@ import { AutoService } from '../services/auto.service';
 })
 export class TableComponent implements OnInit {
 
-  page=1;
+  page: number= 1;
   pageSize=20;
   closeResult = '';
   autos: Automovil[] = [];
@@ -23,6 +23,12 @@ export class TableComponent implements OnInit {
   constructor(private autoService:AutoService, private modalService:NgbModal) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('currentPage') != null){
+      this.page  = +sessionStorage.getItem('currentPage')!;
+    }
+    else{
+      this.page=1;
+    }
     this.displayProgressBar = true;
     this.autoService.getAutos().subscribe((response) =>{
       this.displayProgressBar = false;
@@ -37,7 +43,10 @@ export class TableComponent implements OnInit {
     
     modalRef.result.then(
       (auto) =>
-      {this.autoService.updateAutos(auto).subscribe(response => console.log(response) )}
+      {this.autoService.updateAutos(auto).subscribe(response => {
+        sessionStorage.setItem('currentPage', this.page.toString())
+        this.ngOnInit();
+        console.log(response)} )}
       ),
       (reason: any) => {console.log(reason)}
   }
@@ -48,7 +57,11 @@ export class TableComponent implements OnInit {
     
     modalRef.result.then(
       (auto) =>
-      {this.autoService.addAutos(auto).subscribe(response => console.log(response) )}
+      {this.autoService.addAutos(auto).subscribe(response => {
+        sessionStorage.setItem('currentPage', this.page.toString())
+        this.ngOnInit();
+        console.log(response)
+      } )}
       ),
       (reason: any) => {console.log(reason)}
   }
@@ -60,7 +73,11 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (auto) =>
-      {this.autoService.deleteAutos(auto).subscribe(response => console.log(response))}
+      {this.autoService.deleteAutos(auto).subscribe(response => {
+        sessionStorage.setItem('currentPage', this.page.toString())
+        this.ngOnInit();
+        console.log(response)
+      })}
       ),
       (reason: any) => {console.log(reason)}
 
