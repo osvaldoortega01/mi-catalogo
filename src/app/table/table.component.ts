@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AUTOMOVILES } from '../data';
 import { ModalAddUpdateComponent } from '../modal-add-update/modal-add-update.component';
+import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 import { Automovil } from '../models';
 import { AutoService } from '../services/auto.service';
 
@@ -16,6 +17,7 @@ export class TableComponent implements OnInit {
   pageSize=20;
   closeResult = '';
   autos: Automovil[] = [];
+  auto ?: Automovil;
   autoSeleccionado? : Automovil;
   constructor(private autoService:AutoService, private modalService:NgbModal) { }
 
@@ -29,5 +31,35 @@ export class TableComponent implements OnInit {
     const modalRef = this.modalService.open(ModalAddUpdateComponent,{ centered : true});
     modalRef.componentInstance.auto = auto;
     modalRef.componentInstance.accion = 'Editar';
+    
+    modalRef.result.then(
+      (auto) =>
+      {this.autoService.updateAutos(auto).subscribe(response => console.log(response) )}
+      ),
+      (reason: any) => {console.log(reason)}
+  }
+
+  openModalAdd(){
+    const modalRef = this.modalService.open(ModalAddUpdateComponent,{ centered : true});
+    modalRef.componentInstance.accion = 'Agregar';
+    
+    modalRef.result.then(
+      (auto) =>
+      {this.autoService.addAutos(auto).subscribe(response => console.log(response) )}
+      ),
+      (reason: any) => {console.log(reason)}
+  }
+
+  openModalDelete(auto: Automovil){
+    const modalRef = this.modalService.open(ModalDeleteComponent,{ centered : true});
+    modalRef.componentInstance.auto = auto;
+    modalRef.componentInstance.accion = 'Eliminar';
+
+    modalRef.result.then(
+      (auto) =>
+      {this.autoService.deleteAutos(auto).subscribe(response => console.log(response))}
+      ),
+      (reason: any) => {console.log(reason)}
+
   }
 }

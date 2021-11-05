@@ -1,29 +1,74 @@
-<div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{accion}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="modal-body">
+<div *ngIf="auto ; else elseBlock">
 
-    <div class="form-group">
-        <label for="marca">Marca</label>
-        <input type="text" class="form-control" id="marca" placeholder="Agrega la marca">
-    </div>
-    <div class="form-group">
-        <label for="submarca">Submarca</label>
-        <input type="text" class="form-control" id="submarca" placeholder="Agrega la submarca">
-    </div>
-    <div class="form-group">
-        <label for="descripcion">Descripción</label>
-        <input type="text" class="form-control" id="descripcion" placeholder="Agrega la descripcion">
-    </div>
-    <div class="form-group">
-        <label for="modelos">Modelos</label>
-        <input type="text" class="form-control" id="modelos" placeholder="Agregar el modelo">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{accion}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 
+    <div class="modal-body">
+        <form #formAutos="ngForm">
+            
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" [(ngModel)]="auto.marca" name="marca">
+            </div>
+            <div class="form-group">
+                <label for="submarca">Submarca</label>
+                <input type="text" class="form-control" id="submarca" placeholder="Agrega la submarca" [(ngModel)]="auto.submarca" name="submarca">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" placeholder="Agrega la descripcion" [(ngModel)]="auto.descripcion" name="descripcion">
+            </div>
+            <div class="form-group">
+                <label for="modelos">Modelos</label>
+                <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                <input disabled type="text" class="form-control" id="modelos" placeholder="Agregar el modelo" [(ngModel)]="auto.modelos" name="modelos">
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark"
+                (click)="activeModal.close(auto)">Guardar</button>
+            </div>
+        </form>
+    </div>
 </div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Guardar</button>
-</div>
+
+<ng-template #elseBlock>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{accion}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form #formAutos="ngForm">
+            
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" name="marca">
+            </div>
+            <div class="form-group">
+                <label for="submarca">Submarca</label>
+                <input type="text" class="form-control" id="submarca" placeholder="Agrega la submarca" name="submarca">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" placeholder="Agrega la descripcion" name="descripcion">
+            </div>
+            <div class="form-group">
+                <label for="modelos">Modelos</label>
+                
+                <input disabled type="text" class="form-control" id="modelos" placeholder="Agregar el modelo"name="modelos">
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark"
+                (click)="activeModal.close(auto)">Guardar</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

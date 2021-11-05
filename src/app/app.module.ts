@@ -12,6 +12,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from '@angular/common/http';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ListComponent,
     TableComponent,
     PageNotFoundComponent,
-    ModalAddUpdateComponent
+    ModalAddUpdateComponent,
+    ModalDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],

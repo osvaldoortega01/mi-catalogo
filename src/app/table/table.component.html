@@ -1,5 +1,9 @@
 <p></p>
 <ng-container>
+  <div class="boton">
+    <div class="btn btn-dark" style="margin: auto;" (click)="openModalAdd()" >Agregar Auto <i class="fas fa-plus-circle"></i></div>
+    <p></p>
+  </div>
     <table class="table table-striped">
 
         <thead>
@@ -17,7 +21,7 @@
           <td>{{ auto.marca }}</td>
           <td>{{ auto.submarca }}</td>
           <td>{{ auto.descripcion}}</td>
-          <td><img src="../../assets/icons/trash-solid.svg" style="cursor: pointer;" width="20px" height="20px"></td>
+          <td><img src="../../assets/icons/trash-solid.svg" style="cursor: pointer;" width="20px" height="20px" (click)="openModalDelete(auto)"></td>
           <td><img src="../../assets/icons/edit-solid.svg" style="cursor: pointer;" width="20px" height="20px" (click)="openModalEdit(auto)"></td>
         </tr>
         </tbody>
