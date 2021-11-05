@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FormatModelosPipe } from './pipes/format-modelos.pipe';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormatModelosPipe } from './pipes/format-modelos.pipe';
     PageNotFoundComponent,
     ModalAddUpdateComponent,
     ModalDeleteComponent,
-    FormatModelosPipe
+    FormatModelosPipe,
+    LogComponent
   ],
   imports: [
     BrowserModule,
