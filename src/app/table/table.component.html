@@ -2,8 +2,8 @@
 <ng-container>
   <div class="boton">
     <div class="btn btn-dark" style="margin: auto;" (click)="openModalAdd()" >Agregar Auto <i class="fas fa-plus-circle"></i></div>
-    <p></p>
   </div>
+  <div><p *ngIf="displayProgressBar"><ngb-progressbar type="secondary" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar></p></div>
     <table class="table table-striped">
 
         <thead>

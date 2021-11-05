@@ -19,6 +19,4 @@ export class FormatModelosPipe implements PipeTransform {
       return fixedValue;
     }
   }
-
-
 }
