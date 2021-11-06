@@ -23,6 +23,8 @@
           <th scope="col" class="table-header">Submarca</th>
           <th scope="col" class="table-header">Descripción</th>
           <th scope="col" class="table-header">Modelos</th>
+          <th scope="col" class="table-header"></th>
+          <th scope="col" class="table-header"></th>
         </tr>
         </thead>
 
@@ -33,8 +35,8 @@
           <td>{{ auto.submarca }}</td>
           <td>{{ auto.descripcion}}</td>
           <td>{{ auto.modelos | formatModelos}}</td>
-          <td><img src="../../assets/icons/trash-solid.svg" style="cursor: pointer;" width="20px" height="20px" (click)="openModalDelete(auto)"></td>
-          <td><img src="../../assets/icons/edit-solid.svg" style="cursor: pointer;" width="20px" height="20px" (click)="openModalEdit(auto)"></td>
+          <td><i class="fas fa-trash fa-lg" style="cursor: pointer;"  (click)="openModalDelete(auto)"></i></td>
+          <td><i class="fas fa-edit fa-lg" style="cursor: pointer;" (click)="openModalEdit(auto)"></i></td>
         </tr>
         </tbody>
 
